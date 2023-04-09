@@ -56,4 +56,15 @@ describe('UsersController', () => {
     const user = await controller.findUser('1');
     expect(user).toBeDefined();
   });
+
+  it('signin updates session object and return user', async () => {
+    const session = { userId: -1 };
+    const user = await controller.signin(
+      { email: 'test@test.com', password: 'test' },
+      session,
+    );
+
+    expect(user.id).toBe(1);
+    expect(session.userId).toEqual(1);
+  });
 });
