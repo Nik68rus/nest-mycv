@@ -1,0 +1,25 @@
+### Create new report
+POST http://localhost:3000/reports
+Content-Type: application/json
+
+{
+  "make": "toyota",
+  "model": "rav4",
+  "price": 21000,
+  "year": 2013,
+  "mileage": 17890,
+  "lng": 34.4567,
+  "lat": 56.567
+}
+
+
+### Approve existing report
+PATCH http://localhost:3000/reports/7
+Content-Type: application/json
+
+{
+  "approved": true
+}
+
+### Get estimate for vehicle
+GET http://localhost:3000/reports?make=toyota&model=rav4&lng=0&lat=0&mileage=20000&year=2013
